@@ -3,7 +3,8 @@
   (:require
    [robertluo.fun-map.core :as core]
    [robertluo.fun-map.wrapper :as wrapper]
-   #?(:default
+   #?(:cljs nil
+      :default
       [robertluo.fun-map.helper :as helper])))
 
 (defn fun-map
@@ -84,12 +85,14 @@
   [arg-map & body]
   (helper/make-fw-wrapper `wrapper/fun-wrapper [:trace :cache] arg-map body))
 
-#?(:default
+#?(:cljs nil
+   :default
    (defmethod helper/fw-impl :trace
      [{:keys [f options]}]
      `(wrapper/trace-wrapper ~f ~(:trace options))))
 
-#?(:default
+#?(:cljs nil
+   :default
    (defmethod helper/fw-impl :cache
      [{:keys [f options arg-map]}]
      (let [focus (when-let [focus (:focus options)]
