@@ -11,6 +11,8 @@ jobs:
   build:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flybot-sg/ci-clj-clr:1.2.0
     environment: deploy
 
     steps:
@@ -18,18 +20,11 @@ jobs:
       with:
         fetch-depth: 0
 
-    - uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '21'
-
-    - uses: DeLaGuardo/setup-clojure@13.5
-      with:
-        cli: '1.12.4.1582'
-
     - uses: actions/cache@v5.0.2
       with:
-        path: ~/.m2
+        path: |
+          ~/.m2
+          ~/.gitlibs
         key: default-build
 
     - run: clojure -T:build ci

@@ -1,7 +1,7 @@
 = fun-map, a data structure blurs the line between identity, state and function
 :icons: font
 
-image:https://github.com/robertluo/fun-map/actions/workflows/main.yml/badge.svg[CI,link=https://github.com/robertluo/fun-map/actions/workflows/main.yml]
+image:https://github.com/flybot-sg/fun-map/actions/workflows/main.yml/badge.svg?branch=magic[CI,link=https://github.com/flybot-sg/fun-map/actions/workflows/main.yml]
 image:https://img.shields.io/clojars/v/io.github.robertluo/fun-map.svg[Clojars Project,link=https://clojars.org/io.github.robertluo/fun-map]
 https://cljdoc.org/d/io.github.robertluo/fun-map[image:https://cljdoc.org/badge/io.github.robertluo/fun-map[cljdoc badge]]
 

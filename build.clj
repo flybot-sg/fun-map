@@ -14,13 +14,21 @@
                                [:url "https://opensource.org/license/epl-1-0/"]]]]}]
     (merge defaults opts)))
 
+(defn clr-test
+  "Run CLR tests via Nostrand/Magic."
+  [opts]
+  (let [{:keys [exit]} (b/process {:command-args ["nos" "dotnet/run-tests"]})]
+    (when-not (zero? exit) (System/exit exit))
+    opts))
+
 (defn tests
   [opts]
   (-> opts
       (cb/run-task [:dev :test])
-      (cb/run-task [:dev :cljs-test])))
+      (cb/run-task [:dev :cljs-test])
+      (clr-test)))
 
-(defn copy-clj-kondo-config 
+(defn copy-clj-kondo-config
   "copy clj-kondo definition to local dev env"
   [opts]
   (let [{:keys [lib] :as opts} (project opts)
