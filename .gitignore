@@ -20,3 +20,7 @@ pom.xml.asc
 .calva/
 .cljs_node_repl/
 cljs-test-runner-out/
+.vscode/
+.claude/
+CLAUDE.md
+dev-logs/
