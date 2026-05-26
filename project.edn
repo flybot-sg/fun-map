@@ -1,0 +1,4 @@
+{:name         "fun-map"
+ :version      "0.5.124"
+ :source-paths ["src" "test"]
+ :dependencies []}
