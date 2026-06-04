@@ -23,4 +23,7 @@
   "Run all the tests on the CLR.
   nos dotnet/run-tests"
   []
-  (tasks/run-clojure-tests :aliases [:test] :exclude jvm-only))
+  ;; :re keeps run-all-tests from sweeping every loaded ns (clojure.*, deps' suites)
+  (tasks/run-clojure-tests :aliases [:test]
+                           :exclude jvm-only
+                           :re #"robertluo\.fun-map.*"))

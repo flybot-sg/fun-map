@@ -12,13 +12,16 @@ jobs:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/flybot-sg/ci-clj-clr:2.0.0
+      image: ghcr.io/flybot-sg/ci-clj-clr:2.1.0
     environment: deploy
 
     steps:
     - uses: actions/checkout@v6.0.2
       with:
         fetch-depth: 0
+
+    # Shared git-dep cache root for tools.deps and nostrand ($HOME needs runtime expansion)
+    - run: echo "GITLIBS=$HOME/.gitlibs" >> "$GITHUB_ENV"
 
     - uses: actions/cache@v5.0.2
       with:
