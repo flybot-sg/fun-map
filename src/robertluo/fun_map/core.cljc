@@ -273,7 +273,7 @@
          (close-fn this)))
      System.Collections.IDictionary
      (get_Count [_]
-       (.get_Count ^System.Collections.IDictionary m))
+       (.Count ^System.Collections.IDictionary m))
      (Contains [_ k]
        (.containsKey m k))
      (get_Item [this k]

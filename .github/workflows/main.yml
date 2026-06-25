@@ -12,7 +12,7 @@ jobs:
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/flybot-sg/ci-clj-clr:2.1.0
+      image: ghcr.io/flybot-sg/ci-clj-clr:2.3.0
     environment: deploy
 
     steps:
